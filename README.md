@@ -1,0 +1,1 @@
+Git repo for Spring 2022 Capstone software project. More details to be confirmed
