@@ -19,9 +19,10 @@
     <title>ATO Form</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
     <style>
       html, body {
-      min-height: 100%;
+      min-height: 130%;
       }
       body, div, form, input, select, p { 
       padding: 0;
@@ -104,7 +105,7 @@
       margin-top: 20px;
       border-radius: 5px; 
       border: none;
-      background: #26a9e0; 
+      background: #555f63; 
       text-decoration: none;
       font-size: 15px;
       font-weight: 400;
@@ -138,14 +139,18 @@
   <body>
     <div class="main-block">
       <div class="left-part">
-        <img src="{{url_for('static', filename='lock.jpg')}}"
-            width="200" height="200" />
+        <img src="{{url_for('static', filename='ATO.jpg')}}"
+            width="250" height="200" />
         <h1>Request Authority to Operate</h1>
-        <p>Use this form to request the authority to operate from an authorized individual.
-            Please ensure all information on this form is accurate to the best of your knowledge.
+        <p>Use this form to request the authority to operate from an authorized individual. Enter data for any new IT equipment  
+         that should be tracked upon being installed or acquired.
+          Please ensure all information on this form is accurate to the best of your knowledge.
         </p>
         <div class="btn-group">
-          <a class="btn-item" href="https://www.epa.gov/developers/authorization-operate-overview">What is Authority to Operate?</a>
+          <a class="btn-item" href="https://www.epa.gov/developers/authorization-operate-overview" target = "_blank">What is Authority to Operate?</a>
+        </div>
+        <div>
+        <a class="btn-item" href="{{ url_for('index') }}">Return to Home</a>
         </div>
       </div>
       <form action="/">
@@ -162,6 +167,15 @@
               <option value="Hardware">Hardware</option>
               <option value="Software">Software</option>
           </select>
+          <input type="text" name="Description" placeholder="Description">
+          <input type="text" name="Version" placeholder="Version">
+          <input type="text" name="OS_build" placeholder="OS Build">
+          <input type="text" name="Version" placeholder="Version">
+          <input type="text" name="Serial_#" placeholder="Serial Number">
+          <input type="text" name="Mac_#" placeholder="MAC Number">
+          <input type="text" name="Creator" placeholder="Creator (Last name, first name)">
+          <input type="text" name="Date" placeholder="Date (mm/dd/year)">
+          <input type="text" name="EOF/Support" placeholder="End of Life">
 
         </div>
         <button type="submit" href="/">Submit</button>
