@@ -1,4 +1,3 @@
 website/__pycache__
 virtualenv
-alembic.ini
-migrations
+autoz_database.db

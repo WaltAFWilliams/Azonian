@@ -1,173 +1,64 @@
 {% extends 'base.html' %}
 
-{% block body %}
+{% block content%}
 
-<!-- <h2>New Authorization to Operate Form</h2>
-<form method="post">
-    <label for="name">Full Name (Exactly as it appears on your driver's license)</label><br>
-    <input type="text" id="name" name="name"><br>
-    
-    <label for="id">Enter your employee ID</label><br>
-    <input type="number" id="employee_id" name="employee_id"><br>
-
-    <button type="submit">Create New ATO</button>
-</form> -->
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ATO Form</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <style>
-      html, body {
-      min-height: 100%;
-      }
-      body, div, form, input, select, p { 
-      padding: 0;
-      margin: 0;
-      outline: none;
-      font-family: Roboto, Arial, sans-serif;
-      font-size: 16px;
-      color: #eee;
-      }
-      body {
-      background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
-      background-size: cover;
-      }
-      h1, h2 {
-      text-transform: uppercase;
-      font-weight: 400;
-      }
-      h2 {
-      margin: 0 0 0 8px;
-      }
-      .main-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      padding: 25px;
-      background: rgba(0, 0, 0, 0.5); 
-      }
-      .left-part, form {
-      padding: 25px;
-      }
-      .left-part {
-      text-align: center;
-      }
-      .fa-graduation-cap {
-      font-size: 72px;
-      }
-      form {
-      background: rgba(0, 0, 0, 0.7); 
-      }
-      .title {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      }
-      .info {
-      display: flex;
-      flex-direction: column;
-      }
-      input, select {
-      padding: 5px;
-      margin-bottom: 30px;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #eee;
-      }
-      input::placeholder {
-      color: #eee;
-      }
-      option:focus {
-      border: none;
-      }
-      option {
-      background: black; 
-      border: none;
-      }
-      .checkbox input {
-      margin: 0 10px 0 0;
-      vertical-align: middle;
-      }
-      .checkbox a {
-      color: #26a9e0;
-      }
-      .checkbox a:hover {
-      color: #85d6de;
-      }
-      .btn-item, button {
-      padding: 10px 5px;
-      margin-top: 20px;
-      border-radius: 5px; 
-      border: none;
-      background: #26a9e0; 
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 400;
-      color: #fff;
-      }
-      .btn-item {
-      display: inline-block;
-      margin: 20px 5px 0;
-      }
-      button {
-      width: 100%;
-      }
-      button:hover, .btn-item:hover {
-      background: #85d6de;
-      }
-      @media (min-width: 568px) {
-      html, body {
-      height: 100%;
-      }
-      .main-block {
-      flex-direction: row;
-      height: calc(100% - 50px);
-      }
-      .left-part, form {
-      flex: 1;
-      height: auto;
-      }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="main-block">
-      <div class="left-part">
-        <img src="{{url_for('static', filename='lock.jpg')}}"
-            width="200" height="200" />
-        <h1>Request Authority to Operate</h1>
-        <p>Use this form to request the authority to operate from an authorized individual.
-            Please ensure all information on this form is accurate to the best of your knowledge.
-        </p>
-        <div class="btn-group">
-          <a class="btn-item" href="https://www.epa.gov/developers/authorization-operate-overview" target="_blank">What is Authority to Operate?</a>
-        </div>
-      </div>
-      <form action="/">
-        <div class="title">
-          <i class="fas fa-pencil-alt"></i> 
-          <h2>ENTER INFORMATION HERE</h2>
-        </div>
-        <div class="info">
-          <input class="fname" type="text" name="name" placeholder="Full Name (Last, Middle, First)">
-          <input type="text" name="employee_id" placeholder="Employee ID">
-          <input type="text" name="phone_number" placeholder="Phone number">
-          <select>
-              <option value="Type of Device" selected>Type of Device</option>
-              <option value="Hardware">Hardware</option>
-              <option value="Software">Software</option>
-          </select>
-
-        </div>
-        <button type="submit" href="/">Submit</button>
-      </form>
-    </div>
-  </body>
-</html>
+<form action="http://localhost:5000/add" method="post">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+  </div>
+  <div class="mb-3">
+    <label for="emp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee ID">
+  </div>
+  <div class="mb-3">
+    <label for="phone_num" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="phone_num" name="phone_num" placeholder="Phone number">
+  </div>
+  <div class="mb-3 fs-5">
+    <select>
+      <option value="Type of Device" id="info_sys" name="info_sys" selected>Type of Device</option>
+      <option value="Hardware">Hardware</option>
+      <option value="Software">Software</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="version" class="form-label">Version</label>
+    <input type="text" class="form-control" id="version" name="version" placeholder="Version">
+  </div>
+  <div class="mb-3">
+    <label for="os_build" class="form-label">OS Build</label>
+    <input type="text" class="form-control" id="os_build" name="os_build" placeholder="OS Build">
+  </div>
+  <div class="mb-3">
+    <label for="serial_num" class="form-label">Serial Number</label>
+    <input type="text" class="form-control" id="serial_num" name="serial_num" placeholder="Serial Number">
+  </div>
+  <div class="mb-3">
+    <label for="mac_num" class="form-label">Mac Number</label>
+    <input type="text" class="form-control" id="mac_num" name="mac_num" placeholder="MAC Number">
+  </div>
+  <div class="mb-3">
+    <label for="creator" class="form-label">Creator</label>
+    <input type="text" class="form-control" id="creator" name="creator" placeholder="Creator (Last name, first name)">
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input type="date" class="form-control" id="date" name="date" placeholder="Date (mm/dd/year)">
+  </div>
+  <div class="mb-3">
+    <label for="eol" class="form-label">End Of Life/Support</label>
+    <input type="date" class="form-control" id="eol" name="eol" placeholder="End of Life">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 {% endblock%}

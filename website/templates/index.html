@@ -1,13 +1,79 @@
 {% extends 'base.html' %}
 
-{% block head %}
-{% endblock %}
+{% block content %}
+    <!-- Cards to display stats-->
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+            <div class="card mb4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Hardware</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title">Total Hardware ATOs</h1>
+                    <h1 class="card-title">{{ card_data[0][1] }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Software</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title">Total Software ATOs</h1>
+                    <h1 class="card-title">{{ card_data[1][1] }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card mb4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Total ATOs</h4>
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title">Total ATOs</h1>
+                    <h1 class="card-title">{{ card_data[1][1] + card_data[0][1] }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of stats-->
+    
+    <hr>
 
-{% block body %}
-<div class="content" align="middle">
-    <img src="{{ url_for('static', filename='lock.jpg')}}" align="middle" />
-    <p>AZORIAN</p>
-    <a href="{{ url_for('views.new_form') }}">Request Authority to Operate</a>
+    <!-- Button to create new ATO form-->
+    <a href="{{ url_for('views.new_form') }}" class="btn btn-lg btn-primary">Request Authority To Operate</a>
+    <!-- End of button -->
 
-</div>
+    <hr>
+
+    <!-- Show table for ATOs -->
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">EMP ID</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">ATO Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for ato in ato_data %}
+            <tr class="align-middle">
+                <th scope="row">{{ ato[0] }}</th>
+                <td>{{ ato[1] }}</td>
+                <td>{{ ato[2] }}</td>
+                {% if green in ato[3] %}
+                <td><p class="badge bg-success py-2">{{ ato[3] }}</p></td>
+                {% elif orange in ato[3] %}
+                <td><p class="badge bg-warning text-dark py-2">{{ ato[3] }}</p></td>
+                {% elif red in ato[3] %}
+                <td><p class="badge bg-danger py-2">{{ ato[3] }}</p></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    <!-- End of table -->
+
 {% endblock %}

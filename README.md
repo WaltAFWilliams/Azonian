@@ -6,6 +6,7 @@ This is a software program that tracks the Authority to Operate (ATO) for New st
 ***
 * [Python](https://www.python.org/downloads/): Version 3.9+
 * [PostgreSQL](https://www.postgresql.org/download/): Version 14.2
+    * *For demonstration purposes, we used SQLite*
 * [Flask](https://pypi.org/project/Flask/): Version 2.0.3
 * [psycopg2](https://pypi.org/project/psycopg2/): Version 2.9.3
 * [SQLAlchemy](https://pypi.org/project/SQLAlchemy/): Version 1.4.32
@@ -52,25 +53,6 @@ py -3 -m venv .venv
 ```bash
 pip install -r requirements.txt
 ```
-
-## Connect your database
-1. run `alembic init migrations`
-2. edit `alembic.ini` file and put your database url path
-    * it should look something like `postgresql://{username}:{passwd}@localhost:{port}/{db_name}`
-3. change lines to add model's metadata in *env.py* file
-```bash
-from website.models import Base
-target_metadata = Base.metadata
-```
-4. Create the migrations by running the following command:
-```bash
-alembic revision --autogenerate -m "{Add comment here}"
-```
-5. apply the migrations to the database
-```bash
-alembic upgrade heads
-```
-
 
 ## Run the App
 
