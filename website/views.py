@@ -32,7 +32,7 @@ def new_form():
 
         ato_info = (
             1,
-            'Type Goes Here',
+            'Hardware',
             request.form['os_build'],
             request.form['version'],
             request.form['serial_num'],
