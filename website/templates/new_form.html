@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<form action="http://localhost:5000/add" method="post">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+  </div>
+  <div class="mb-3">
+    <label for="emp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee ID">
+  </div>
+  <div class="mb-3">
+    <label for="phone_num" class="form-label">Phone Number</label>
+    <input type="text" class="form-control" id="phone_num" name="phone_num" placeholder="Phone number">
+  </div>
+  <div class="mb-3 fs-5">
+    <select>
+      <option value="Type of Device" id="info_sys" name="info_sys" selected>Type of Device</option>
+      <option value="Hardware">Hardware</option>
+      <option value="Software">Software</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="version" class="form-label">Version</label>
+    <input type="text" class="form-control" id="version" name="version" placeholder="Version">
+  </div>
+  <div class="mb-3">
+    <label for="os_build" class="form-label">OS Build</label>
+    <input type="text" class="form-control" id="os_build" name="os_build" placeholder="OS Build">
+  </div>
+  <div class="mb-3">
+    <label for="serial_num" class="form-label">Serial Number</label>
+    <input type="text" class="form-control" id="serial_num" name="serial_num" placeholder="Serial Number">
+  </div>
+  <div class="mb-3">
+    <label for="mac_num" class="form-label">Mac Number</label>
+    <input type="text" class="form-control" id="mac_num" name="mac_num" placeholder="MAC Number">
+  </div>
+  <div class="mb-3">
+    <label for="creator" class="form-label">Creator</label>
+    <input type="text" class="form-control" id="creator" name="creator" placeholder="Creator (Last name, first name)">
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input type="date" class="form-control" id="date" name="date" placeholder="Date (mm/dd/year)">
+  </div>
+  <div class="mb-3">
+    <label for="eol" class="form-label">End Of Life/Support</label>
+    <input type="date" class="form-control" id="eol" name="eol" placeholder="End of Life">
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock%}
