@@ -10,7 +10,6 @@ def create_app():
     populate_database()
 
     from .views import views
-    from .models import insert_user, retrieve_users
 
     app.register_blueprint(views, url_prefix='/')
 
