@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<!-- (id INTEGER PRIMARY KEY AUTOINCREMENT,
+employee_id INTEGER NOT NULL,
+role TEXT NOT NULL,
+firstname TEXT NOT NULL,
+lastname TEXT NOT NULL,
+phone INTEGER NOT NULL,
+email TEXT NOT NULL,
+password TEXT NOT NULL -->
+
+<form action="http://localhost:5000/add" method="post">
+  <div class="mb-3">
+    <label for="username" class="form-label">New Username</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="New User">
+  </div>
+  <!-- <div class="mb-3">
+    <label for="lastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name">
+  </div> -->
+  <!-- <div class="mb-3 fs-5">
+    <select>
+      <option value="role" id="role" name="role" selected>Company Role</option>
+      <option value="employee">Employee</option>
+      <option value="manager">Manager</option>
+    </select>
+  <div class="mb-3">
+    <label for="emp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" id="emp_id" name="emp_id" placeholder="Employee ID">
+  </div> -->
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="text" class="form-control" id="password" name="password" placeholder="Please enter your password">
+  </div>
+{% endblock %}

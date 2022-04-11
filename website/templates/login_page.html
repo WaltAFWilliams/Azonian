@@ -11,17 +11,20 @@
        <h1 id="heading1">Please Log In</h1>
        <img src="https://img.icons8.com/cute-clipart/344/login-rounded-right.png" alt="Login Logo" style="width:100px; height:100px;">
      <div>
-         <form action="" class="myForm" name="myForm">
+         <form action="/new_account" method="post">
              <div class="input-container">
                  <i class="fa fa-envelope icon"></i>
-                 <input type="email" placeholder="Email" name="email" class="input-field" required>
+                 <input type="email" placeholder="Email" name="email" class="input-field">
              </div>
              <div class="input-container">
                 <i class="fa fa-key icon"></i>
-                <input type="password" placeholder="Password" name="password" class="input-field"  required>
+                <input type="password" placeholder="Password" name="password" class="input-field">
                </div>
             <div><input type="submit" class="bttn"></div>
-         </form>
+            <a href="/new_account">
+                <input type="submit" value="Create account" /> 
+            </a>       
+        </form>
      </div>
     </body>
 </html>

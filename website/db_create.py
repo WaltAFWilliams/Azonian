@@ -44,5 +44,11 @@ def create_database():
     )
     """)
 
+    cursor.execute("drop table if exists login;")
+
+    cursor.execute(
+        "Create table login(id integer primary key autoincrement, username text not null, password text not null)"
+    )
+
     conn.commit()
     conn.close()
