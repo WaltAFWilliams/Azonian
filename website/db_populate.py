@@ -33,11 +33,5 @@ def populate_database():
     ('Hardware','Denied', 2, '3.02.1', '2.3', 741654789321456, 'mac951478521', 'WaterHavean', "2021, 6, 4", "2025, 5, 4", "Blah blah blah blah . . . Elden Ring")
     """)
 
-    cursor.execute(
-        """INSERT INTO login (username, password) 
-        VALUES('walt@autozone.com', 'password1'),
-        ('bob', 'password2')"""
-    )
-
     conn.commit()
     conn.close()

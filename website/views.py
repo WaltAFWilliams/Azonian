@@ -1,5 +1,3 @@
-from crypt import methods
-from multiprocessing.sharedctypes import Value
 from flask import Blueprint, render_template, url_for, request, redirect, flash
 import sqlite3
 from json.tool import main
@@ -8,35 +6,7 @@ from json.tool import main
 views = Blueprint('views', __name__)
 
 
-@views.route('/', methods=['POST', 'GET'])
-def login_page():
-    if request.method=='POST':
-        email = request.form['email']
-        password = request.form['password']
-        
-        conn = sqlite3.connect('autoz_database.db')
-        cursor = conn.cursor()        
-        query = cursor.execute('SELECT (username, password) from login where username=(?) and password=(?)', [email, password])
-        valid_user = query.fetchone()
-        if valid_user is not None:
-            return redirect(url_for('index.html'))
-        else: 
-            raise ValueError(' This email is not registered, please create a new account.')
-            return render_template('login_page.html')
-    else:
-        return render_template('login_page.html')
-
-@views.route('/new_account', methods=['GET', 'POST'])
-def new_account_page():
-    if request.method=='POST': # If the user is trying to save their information into the database
-        username = request.form['email']
-        password = request.form['password']
-        insert_user(username, password)
-        return redirect(url_for('index.html'))
-    else:
-        return render_template('new_account_page.html')
-
-
+@views.route('/')
 @views.route('/index')
 def index():
     card_data = query_ato_count()
