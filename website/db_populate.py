@@ -6,17 +6,19 @@ def populate_database():
     conn = sqlite3.connect(db_locale)
     cursor = conn.cursor()
 
+    # password = ['secret123', 'secret456', 'secret789', 'secret012', 'secret345', 'secret678', 'supersecret123', 'supersecret456', 'supersecret789']
+
     cursor.execute("""
-    INSERT INTO user (employee_id, role, firstname, lastname, phone, email, password) VALUES
-    (234567, 'security-analyst', 'Bob', 'Preston', 897152236, 'bobpreston@email.com', 'secret123'),
-    (789012, 'security-analyst', 'Susan', 'Sage', 775321654, 'susansage@email.com', 'secret456'),
-    (345678, 'security-analyst', 'James', 'Button', 741852963, 'jamebutton@email.com', 'secret789'),
-    (901234, 'security-analyst', 'Emilly', 'Carlton', 147258369, 'emillycarlton@email.com', 'secret012'),
-    (567890, 'security-analyst', 'Dave', 'Chapelle', 748159263, 'davechapelle@email.com', 'secret345'),
-    (987654, 'security-analyst', 'Son', 'Goku', 326159487, 'songoku@email.com', 'secret678'),
-    (654987, 'supervisor', 'Yuji', 'Itadori', 791346258, 'yujiitadori@email.com', 'supersecret123'),
-    (321987, 'it-director', 'Sasuke', 'Uchiha', 175369147, 'sasukeuchiha@email.com', 'supersecret456'),
-    (987321, 'cisso', 'John', 'Wick', 852741901, 'johnwick@email.com', 'supersecret789')
+    INSERT INTO user (employee_id, role, first_Name, last_Name, phone, email, password) VALUES
+    (234567, 'security-analyst', 'Bob', 'Preston', 8971522360, 'bobpreston@email.com', 'sha256$7F5F5EBYgUo0S0iD$defebefdb9dde2770b707a902ee6bbe6cc2531388c55290743477abbdb1e287e'),
+    (789012, 'security-analyst', 'Susan', 'Sage', 7753216540, 'susansage@email.com', 'sha256$NqCBqqDKrn861nJf$b78283e8f2f9d2da11c6820430474c92e64f8e21bd6d314e23c5018293ad04ef'),
+    (345678, 'security-analyst', 'James', 'Button', 7418529630, 'jamebutton@email.com', 'sha256$bQIFw5P2wKjEq3aO$d0fac9cbefb8c16304ca320cfc669eefba045f4bb9b3d6364de836e22107a52c'),
+    (901234, 'security-analyst', 'Emilly', 'Carlton', 1472583690, 'emillycarlton@email.com', 'sha256$a7AuS2nIBZnxZUDg$ebba7a673721052689dddd1fb66df0fc52c6949673883f423c5f4124bea8241e'),
+    (567890, 'security-analyst', 'Dave', 'Chapelle', 7481592630, 'davechapelle@email.com', 'sha256$zQWg7m86cWWD4T3j$1413b787300b2df253cd8e3e7c53b90536273e02cde24fa83465f57d6aecdea3'),
+    (987654, 'security-analyst', 'Son', 'Goku', 3261594870, 'songoku@email.com', 'sha256$aXcevgF0OM30nGKj$bb8bd2533fc35240e36d1afebee91fcf94509276985ce3c5f678f9217eef6007'),
+    (654987, 'supervisor', 'Yuji', 'Itadori', 7913462580, 'yujiitadori@email.com', 'sha256$6PT4N084VSZkn6EH$d63535b1fa18cb3111678b4a0c2944bbeacdcf2f6d886d1ffd1677b71c1d4fc6'),
+    (321987, 'it-director', 'Sasuke', 'Uchiha', 1753691470, 'sasukeuchiha@email.com', 'sha256$VcJ4VjU4ehpZA8p4$616d4bf1474f88a576e6a091748c2c881645f2ea55756d0757a4993e40d10733'),
+    (987321, 'cisso', 'John', 'Wick', 8527419010, 'johnwick@email.com', 'sha256$7dorNVNM71v1e0iW$060526e1c9a1787c82b52cdb3be6ec35cea56281dbf4d0f1748b7376852266cc')
     """)
 
     cursor.execute("""
@@ -35,3 +37,6 @@ def populate_database():
 
     conn.commit()
     conn.close()
+
+    
+    

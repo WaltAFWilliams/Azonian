@@ -19,8 +19,8 @@ def create_database():
     (id INTEGER PRIMARY KEY AUTOINCREMENT,
     employee_id INTEGER NOT NULL,
     role TEXT NOT NULL,
-    firstname TEXT NOT NULL,
-    lastname TEXT NOT NULL,
+    first_Name TEXT NOT NULL,
+    last_Name TEXT NOT NULL,
     phone INTEGER NOT NULL,
     email TEXT NOT NULL,
     password TEXT NOT NULL
@@ -40,9 +40,11 @@ def create_database():
     eol DATE,
     descr TEXT,
     status TEXT,
-    FOREIGN KEY (owner) REFERENCES user (id)
+    FOREIGN KEY(owner) REFERENCES user (id)
     )
     """)
 
     conn.commit()
     conn.close()
+
+    
