@@ -6,6 +6,7 @@ import sqlite3
 views = Blueprint('views', __name__)
 
 
+@views.route('/')
 @views.route('/index')
 @login_required
 def index():
