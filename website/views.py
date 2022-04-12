@@ -1,36 +1,34 @@
 from flask import Blueprint, render_template, url_for, request, redirect, flash
+from flask_login import login_required, current_user
 import sqlite3
-from json.tool import main
 
 
 views = Blueprint('views', __name__)
 
 
-@views.route('/')
 @views.route('/index')
+@login_required
 def index():
     card_data = query_ato_count()
     ato_data = query_ato_details()
     green = "Approved"
     orange = "Pending"
     red = "Denied"
-    return render_template('index.html', card_data=card_data, ato_data=ato_data, green=green, orange=orange, red=red)
+    return render_template('index.html', user=current_user, card_data=card_data, ato_data=ato_data, green=green, orange=orange, red=red)
 
 
-@views.route('/add', methods=['GET', 'POST'])
+@views.route('/new_form', methods=['GET', 'POST'])
+@login_required
 def new_form():
     # If they're trying to save the form to the database
     if request.method == 'GET':
         return render_template('new_form.html')
     else:
-        # flash('ATO added!', category='success')
-        owner_info = (
+        flash('ATO added!', 'success')
+        ato_info = (
             request.form['firstName'],
             request.form['lastName'],
-            request.form['emp_id']
-        )
-
-        ato_info = (
+            request.form['emp_id'],
             1,
             'Hardware',
             request.form['os_build'],
@@ -45,7 +43,7 @@ def new_form():
         )
         
         insert_info(ato_info)
-        return redirect(url_for('views.index'))
+        return redirect(url_for('views.index'), user=current_user)
 
 def insert_info(ato_info):
     db_locale = 'autoz_database.db'
@@ -83,7 +81,7 @@ def query_ato_details():
     cursor = conn.cursor()
     
     cursor.execute("""
-    SELECT employee_id, firstname, lastname, ato_form.status
+    SELECT employee_id, first_Name, last_Name, ato_form.status
     FROM user
     INNER JOIN ato_form on ato_form.owner = user.id;
     """)
