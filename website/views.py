@@ -27,10 +27,11 @@ def new_form():
     else:
         flash('ATO added!', 'success')
         ato_info = (
-            request.form['firstName'],
-            request.form['lastName'],
-            request.form['emp_id'],
-            1,
+            # request.form['firstName'],
+            # request.form['lastName'],
+            # request.form['emp_id'],
+            7,
+            # 1,
             'Hardware',
             request.form['os_build'],
             request.form['version'],
@@ -44,7 +45,7 @@ def new_form():
         )
         
         insert_info(ato_info)
-        return redirect(url_for('views.index'), user=current_user)
+        return redirect(url_for('views.index'))
 
 def insert_info(ato_info):
     db_locale = 'autoz_database.db'
